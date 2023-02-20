@@ -10,6 +10,20 @@ function newGame() {
     game.playerMoves = [];
     game.score = 0;
     showScore();
+    addTurn();
+}
+
+function addTurn() {
+    game.playerMoves = [];
+    game.currentGame.push(game.choices[(Math.floor(Math.random() * 4))]);
+    // showTurns();
+}
+
+function lightsOn(circ) {
+    document.getElementById(circ).classList.add(circ + "light");
+    setTimeout(function () {
+        document.getElementById(circ).classList.remove(circ + "light");
+    }, 400);
 }
 
 function showScore() {
@@ -17,4 +31,4 @@ function showScore() {
 }
 
 // {} because the exporting more than  one object and function from this file 
-module.exports = { game, newGame, showScore };
+module.exports = { game, newGame, showScore, addTurn, lightsOn };
